@@ -1,0 +1,58 @@
+# Docker Compose file version
+version: '3.8'
+
+# Define the services (containers) that make up the application
+services:
+  # The Backend (Django) service
+  backend:
+    # Build the image from the Dockerfile in the 'backend' directory
+    build: ./backend
+    # Name the container for easier identification
+    container_name: intelligent_insure_backend
+    # The command to run when the container starts. It executes our entrypoint script.
+    command: /app/entrypoint.sh
+    # Expose port 8000 of the container to port 8000 on the host machine
+    ports:
+      - "8000:8000"
+    # Load environment variables from the .env file in the backend directory
+    env_file:
+      - ./backend/.env
+    # This service depends on the 'db' service. It will wait for 'db' to start.
+    depends_on:
+      - db
+
+  # The Frontend (Next.js) service
+  frontend:
+    # Build the image from the Dockerfile in the 'frontend' directory
+    build: ./frontend
+    # Name the container
+    container_name: intelligent_insure_frontend
+    # Expose port 3000 of the container to port 3000 on the host machine
+    ports:
+      - "3000:3000"
+    # Load environment variables from the .env.local file in the frontend directory
+    env_file:
+      - ./frontend/.env.local
+    # This service depends on the 'backend' service.
+    depends_on:
+      - backend
+
+  # The Database (PostgreSQL) service
+  db:
+    # Use the official PostgreSQL image (alpine version is lightweight)
+    image: postgres:15-alpine
+    # Name the container
+    container_name: intelligent_insure_db
+    # Mount a volume to persist database data even if the container is removed
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    # Load environment variables from the backend's .env file to configure the database
+    # This ensures the user, password, and db name match what Django expects.
+    env_file:
+      - ./backend/.env
+    # Do not expose the database port to the host machine for security.
+    # The backend service can access it directly through Docker's internal network.
+
+# Define the named volume for data persistence
+volumes:
+  postgres_data:
