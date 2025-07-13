@@ -39,6 +39,10 @@ COPY . .
 # Collect static files for Django admin and other static assets
 RUN python manage.py collectstatic --noinput
 
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
+
 # Expose the port the app will run on
 EXPOSE 8000
 
