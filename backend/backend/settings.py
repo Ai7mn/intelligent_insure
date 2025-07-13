@@ -104,6 +104,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # --- CUSTOM SETTINGS ---
 AUTH_USER_MODEL = 'recommendations.User'
 CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', "http://localhost:3000").split(',')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', "http://localhost:8000").split(',')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
