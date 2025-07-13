@@ -19,13 +19,6 @@
 * **🐳 Fully Containerized:** The entire application stack (Frontend, Backend, Database) is containerized using **Docker** and orchestrated with `docker-compose` for easy local development.
 * **☁️ Cloud-Ready:** Designed for production deployment on **AWS Elastic Beanstalk**, demonstrating a clear path from development to a scalable, cloud-native environment.
 
-### Architecture
-
-The application follows a modern, decoupled multi-container architecture, ensuring scalability and separation of concerns.
-
-![Architecture Diagram](https://i.imgur.com/8n8aD1L.png)
-
----
 
 ## 🚀 Getting Started
 
@@ -107,7 +100,7 @@ This is the recommended method as it runs the entire application stack in a prod
 #### Setup
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/ai7mn/intelligent-insure.git](https://github.com/ai7mn/intelligent-insure.git)
+    git clone https://github.com/ai7mn/intelligent-insure.git
     cd intelligent-insure
     ```
 2.  **Generate the Machine Learning Model:**

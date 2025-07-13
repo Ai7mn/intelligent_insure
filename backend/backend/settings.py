@@ -68,7 +68,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('POSTGRES_DB', 'intelligent_insure'),
         'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Ayman1@1'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345678'),
         'HOST': os.getenv('POSTGRES_HOST', 'localhost'), # 'db' is the service name in docker-compose
         'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
@@ -113,7 +113,7 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle'
     ],
-    'DEFAULT_THROTTLE_RATES': {'anon': '100/min', 'user': '1000/min'}
+    'DEFAULT_THROTTLE_RATES': {'anon': '20/min', 'user': '100/min'}
 }
 
 SIMPLE_JWT = {
