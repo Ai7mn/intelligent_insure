@@ -32,7 +32,7 @@ services:
       - "3000:3000"
     # Load environment variables from the .env.local file in the frontend directory
     env_file:
-      - ./frontend/.env.local
+      - ./frontend/.env
     # This service depends on the 'backend' service.
     depends_on:
       - backend
