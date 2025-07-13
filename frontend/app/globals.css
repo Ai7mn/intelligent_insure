@@ -1,0 +1,103 @@
+@import "tailwindcss";
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary-color: #6366f1;
+    /* Tailwind indigo-500 */
+    --secondary-color: #a855f7;
+    /* Tailwind purple-500 */
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+    --border-radius: 1rem;
+    /* 16px rounded corners */
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --background: #0a0a0a;
+        --foreground: #f4f4f5;
+        /* neutral-100 */
+        --primary-color: #818cf8;
+        /* lighter indigo */
+        --secondary-color: #c084fc;
+        /* lighter purple */
+    }
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+
+/* Example of a container/card with luxury look */
+
+.container {
+    max-width: 768px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--background);
+    color: var(--foreground);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+
+/* Headings */
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+
+/* Buttons */
+
+.button {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.button:hover {
+    background: var(--secondary-color);
+}
+
+
+/* Links */
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* Smooth transition for theme changes */
+
+html,
+body,
+.container,
+.button,
+a {
+    transition: var(--transition);
+}
